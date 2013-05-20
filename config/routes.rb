@@ -1,5 +1,10 @@
 Geoevents::Application.routes.draw do
-  resources :applications
+  
+  resources :users, :except => :show 
+
+  resources :applications do
+  	resources :pushers	
+  end
 
   root :to => "home#index"
 
