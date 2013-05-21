@@ -8,15 +8,17 @@
   <dd><%= @pusher.identifier %></dd>
   <dt><strong><%= model_class.human_attribute_name(:key) %>:</strong></dt>
   <dd><%= @pusher.key %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:application_token) %>:</strong></dt>
+  <dd><%= @pusher.application.application_token %></dd>
 </dl>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              pushers_path, :class => 'btn'  %>
+              application_pushers_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_pusher_path(@pusher), :class => 'btn' %>
+              edit_application_pusher_path(@pusher), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              pusher_path(@pusher),
+              application_pusher_path(@pusher),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>

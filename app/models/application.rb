@@ -6,6 +6,7 @@ class Application < ActiveRecord::Base
   attr_protected :application_token
 
   validates :identifier, presence: true, uniqueness: true
+  has_many :pushers
 
   def create_application_token
   	self.application_token = Digest::SHA1.hexdigest([Time.now, rand].join)

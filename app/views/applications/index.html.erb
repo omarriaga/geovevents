@@ -18,6 +18,8 @@
         <td><%= application.application_token %></td>
         <td><%=l application.created_at %></td>
         <td>
+          <%= link_to model_class.human_attribute_name(:pushers),
+                      application_pushers_path(application), :class => 'btn' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_application_path(application), :class => 'btn' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

@@ -5,9 +5,11 @@ class Pusher < ActiveRecord::Base
   attr_accessible :identifier 
   attr_protected :key
 
+  belongs_to :application
   
   validates :identifier, presence: true, uniqueness: true
 
   def create_application_token
-  	self.application_token = Digest::SHA1.hexdigest([Time.now, rand].join)
+  	self.key = Digest::SHA1.hexdigest([Time.now, rand].join)
   end
+end
